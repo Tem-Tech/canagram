@@ -1,6 +1,6 @@
-import { useState } from 'react'
 import './../src/styles/App.css'
 import Heading from './components/Heading'
+import Keyboard from './components/Keyboard'
 
 function App() {
  
@@ -9,11 +9,8 @@ function App() {
     <>
       <div>
       <Heading />  
-    
       </div>
-    
-     
-
+      <Keyboard onClick={}/>
      
     </>
   )

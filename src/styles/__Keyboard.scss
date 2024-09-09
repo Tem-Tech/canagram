@@ -1,0 +1,31 @@
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(10, 40px); // Adjust as needed
+    gap: 5px;
+  }
+  .keyboard__key {
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  
+    &--special {
+      font-weight: bold;
+    }
+  
+    &:hover {
+      background-color: #d0d0d0;
+    }
+  
+    &:active {
+      background-color: #c0c0c0;
+    }
+  }
+
+.tiles {
+    background: rgb(214, 140, 43);
+    background: linear-gradient(90deg, rgba(214, 140, 43, 1) 0%, rgba(255, 205, 46, 1) 35%, rgba(255, 230, 46, 1) 100%);
+    border-radius: 5%;
+}

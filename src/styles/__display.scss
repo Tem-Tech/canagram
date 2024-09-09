@@ -1,0 +1,43 @@
+.display {
+    &__controls {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+  
+      .display__button {
+        margin: 0 5px;
+        padding: 5px;
+        border: none;
+        background: #f0f0f0;
+        cursor: pointer;
+  
+        &--increase {
+        }
+  
+        &--decrease {
+        }
+      }
+    }
+  
+    &__boxes {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+  
+    &__box {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #000;
+      font-size: 18px;
+      border: 1px solid orange;
+    }
+  
+    &__sequence {
+      text-align: center;
+      font-size: 16px;
+    }
+  }
