@@ -1,13 +1,12 @@
-// src/components/Display.tsx
 import React, { useState } from 'react';
-import './../styles/__display.scss'; // Adjust the path according to your project structure
+import './../styles/__display.scss'; 
 
 type DisplayProps = {
   letters: string[];
 };
 
 const Display = ({ letters }: DisplayProps): JSX.Element => {
-  const [boxCount, setBoxCount] = useState<number>(3);
+  const [boxCount, setBoxCount] = useState<number>(5);
 
   const handleIncrease = () => {
     setBoxCount(boxCount + 1);
@@ -45,7 +44,6 @@ const Display = ({ letters }: DisplayProps): JSX.Element => {
           </div>
         ))}
       </div>
-      <p className="display__sequence">Letter Sequence: {letterSequence}</p>
     </div>
   );
 };

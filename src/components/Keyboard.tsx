@@ -1,20 +1,24 @@
 import React from 'react';
 import './../styles/__Keyboard.scss';
 
-const SCRABBLE_SCORES: { [key: string]: number } = {
-  A: 1, B: 3, C: 3, D: 2, E: 1, F: 4, G: 2, H: 4, I: 1, J: 8,
-  K: 5, L: 1, M: 3, N: 1, O: 1, P: 3, Q: 10, R: 1, S: 1, T: 1,
-  U: 1, V: 4, W: 4, X: 8, Y: 4, Z: 10,
-};
-
 type KeyboardProps = {
   onClick: (key: string) => void;
 };
 
+function generateAlphabet(capital: boolean = true) {
+  const startCharCode = capital ? 65 : 97;
+  return [...Array(26)].map((_, i) => {
+    const letter = String.fromCharCode(startCharCode + i);
+    return { letter };
+  });
+}
+
 const Keyboard = ({ onClick }: KeyboardProps): JSX.Element => {
+  const letters = generateAlphabet(); 
+
   return (
     <div className="keyboard">
-      {Object.keys(SCRABBLE_SCORES).map((letter) => (
+      {letters.map(({ letter }) => (
         <button
           key={letter}
           className="keyboard__key"
@@ -32,7 +36,6 @@ const Keyboard = ({ onClick }: KeyboardProps): JSX.Element => {
       <button
         className="keyboard__key keyboard__key--special"
         onClick={() => onClick('?')}
-
       >
         ?
       </button>
