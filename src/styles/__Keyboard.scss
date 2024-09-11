@@ -1,7 +1,8 @@
 .keyboard {
     display: grid;
     grid-template-columns: repeat(10, 40px); // Adjust as needed
-    gap: 5px;
+    gap: 10px;
+    margin: 2rem;
   }
   .keyboard__key {
     padding: 10px;
@@ -16,11 +17,11 @@
     }
   
     &:hover {
-      background-color: #d0d0d0;
+      background-color: #c0c0c07a;
     }
   
     &:active {
-      background-color: #c0c0c0;
+      background-color: #c0c0c07a;
     }
   }
 

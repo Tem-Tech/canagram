@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './../styles/__display.scss'; 
 
 type DisplayProps = {
@@ -17,9 +17,6 @@ const Display = ({ letters }: DisplayProps): JSX.Element => {
       setBoxCount(boxCount - 1);
     }
   };
-
-  const letterSequence = letters.slice(0, boxCount).join('');
-
   return (
     <div className="display">
       <div className="display__controls">

@@ -1,4 +1,3 @@
-import React from 'react';
 import './../styles/__Keyboard.scss';
 
 type KeyboardProps = {
@@ -29,15 +28,15 @@ const Keyboard = ({ onClick }: KeyboardProps): JSX.Element => {
       ))}
       <button
         className="keyboard__key keyboard__key--special"
-        onClick={() => onClick('Backspace')}
-      >
-        ←
-      </button>
-      <button
-        className="keyboard__key keyboard__key--special"
         onClick={() => onClick('?')}
       >
         ?
+      </button>
+      <button
+        className="keyboard__key keyboard__key--special"
+        onClick={() => onClick('Backspace')}
+      >
+        ←
       </button>
     </div>
   );

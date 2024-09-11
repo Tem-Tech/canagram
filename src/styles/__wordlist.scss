@@ -1,0 +1,54 @@
+.word-list {
+    width: 66.66%;
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 1.5rem;
+    background-color: rgba(71, 69, 69, 0.673);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    //text-shadow: 2px 2px 5px #f67b07;
+  
+    @media (max-width: 768px) {
+      width: 80%;
+    }
+  
+    @media (max-width: 480px) {
+      width: 90%;
+    }
+  
+    &__title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    &__subtitle {
+      font-size: 1rem;
+    }
+  
+    &__arrow {
+      margin-top: 1rem;
+      fill: #fff;
+      .arrow-down {
+        animation: bounce 2s infinite;
+      }
+    }
+  }
+  
+  // Correct placement of keyframes
+  @keyframes bounce {
+    0%,
+    25%,
+    50%,
+    75%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-20px);
+    }
+    60% {
+      transform: translateY(-12px);
+    }
+  }
+  

@@ -3,6 +3,7 @@ import './../src/styles/App.css'
 import Heading from './components/Heading'
 import Display from './components/Display'
 import Keyboard from './components/Keyboard'
+import WordList from './components/Wordlist'
 function App() {
   const [letters, setLetters] = useState<string[]>([]); 
 
@@ -16,9 +17,8 @@ function App() {
   return (
     <>
       <Heading />  
-    
+      <WordList />
       <Display letters={letters} />
-
       <Keyboard onClick={handleKeyClick} /> 
    
     </>
