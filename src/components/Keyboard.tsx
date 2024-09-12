@@ -1,8 +1,9 @@
 import './../styles/__Keyboard.scss';
 
 type KeyboardProps = {
-  pattern: string;
   onClick: (key: string) => void;
+  onSearch: () => void;   
+  onRefresh: () => void; 
 };
 
 function generateAlphabet(capital: boolean = true) {
@@ -13,8 +14,7 @@ function generateAlphabet(capital: boolean = true) {
   });
 }
 
-const Keyboard = ({ pattern,onClick }: KeyboardProps): JSX.Element => {
-  console.log('Pattern received:', pattern);
+const Keyboard = ({ onClick, onSearch, onRefresh }: KeyboardProps): JSX.Element => {
   const letters = generateAlphabet(); 
 
   return (
@@ -42,16 +42,21 @@ const Keyboard = ({ pattern,onClick }: KeyboardProps): JSX.Element => {
       </button>
       <button
         className="keyboard__key keyboard__key--special"
-        onClick={() => onClick('Search')}
+        onClick={onSearch} 
       >
-        
+        🔍 
+      </button>
+      <button
+        className="keyboard__key keyboard__key--special"
+        onClick={onRefresh} 
+      >
+        🔄
       </button>
     </div>
   );
 };
 
 export default Keyboard;
-
 /* enter button has an on click event there should be a function that sends the API call; 
 send the string retrieved from display props as a search sequence and send data 
 fetched to the wordlist component.*/

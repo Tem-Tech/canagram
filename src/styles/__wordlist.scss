@@ -1,6 +1,6 @@
 .word-list {
     width: 66.66%;
-    max-width: 800px;
+    max-width: 80%;
     margin: 4rem auto;
     padding: 1.5rem;
     background-color: rgba(71, 69, 69, 0.673);
@@ -40,8 +40,8 @@
   }
 
   &__column {
-    width: 48%;
-    text-align: left; 
+    width: 50%;
+    text-align: center; 
   }
 
   &__word {

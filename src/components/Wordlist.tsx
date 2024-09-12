@@ -10,12 +10,17 @@ const WordList = ({ words }: WordListProps): JSX.Element => {
       {words.length > 0 ? (
         <div className="word-list__columns">
           <div className="word-list__column">
-            {words.slice(0, Math.ceil(words.length / 2)).map((word, index) => (
+            {words.slice(0, Math.ceil(words.length / 3)).map((word, index) => (
               <p key={index} className="word-list__word">{word}</p>
             ))}
           </div>
           <div className="word-list__column">
-            {words.slice(Math.ceil(words.length / 2)).map((word, index) => (
+            {words.slice(Math.ceil(words.length / 3)).map((word, index) => (
+              <p key={index} className="word-list__word">{word}</p>
+            ))}
+          </div>
+          <div className="word-list__column">
+            {words.slice(Math.ceil(words.length / 3)).map((word, index) => (
               <p key={index} className="word-list__word">{word}</p>
             ))}
           </div>
