@@ -1,0 +1,51 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--navbar-bg-color);
+    color: var(--navbar-text-color);
+  
+    &__logo {
+      font-size: 1.5rem;
+    }
+  
+    &__links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+  
+      .navbar__link {
+        text-decoration: none;
+        color: inherit;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  
+    &__theme-toggle {
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: inherit;
+      font-size: 1rem;
+    }
+  }
+  
+  // Add theme variables to your main CSS file or specific theme files
+  body.light {
+    --navbar-bg-color: #f0f0f0;
+    --navbar-text-color: #333;
+    background-color: #ffffff;
+    color: #333;
+  }
+  
+  body.dark {
+    --navbar-bg-color: #333;
+    --navbar-text-color: #f0f0f0;
+    background-color: #000000;
+    color: #f0f0f0;
+  }
+  

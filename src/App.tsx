@@ -5,6 +5,7 @@ import Heading from './components/Heading';
 import Display from './components/Display';
 import Keyboard from './components/Keyboard';
 import WordList from './components/Wordlist';
+//import Navbar from './components/Navbar';
 
 function App() {
   const [letters, setLetters] = useState<string[]>([]);
@@ -23,7 +24,7 @@ function App() {
     if (pattern) {
       try {
         const result = await fetchWords(pattern); 
-        setWords(result.slice(0, 30).map((wordObj: any) => wordObj.word)); 
+        setWords(result.slice(0, 10).map((wordObj: any) => wordObj.word)); 
       } catch (error) {
         console.error('Failed to fetch words:', error);
       }

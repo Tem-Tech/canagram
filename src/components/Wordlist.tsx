@@ -1,29 +1,57 @@
+import { useState } from 'react';
 import './../styles/__WordList.scss';
-
 type WordListProps = {
   words: string[];
 };
 
 const WordList = ({ words }: WordListProps): JSX.Element => {
+    const [definition, setDefinition] = useState<string | null>(null);
+    const [hoveredWord, setHoveredWord] = useState<string | null>(null);
+  
+    const fetchDefinition = async (word: string) => {
+      try {
+        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch definition');
+        }
+        const data = await response.json();
+        setDefinition(data[0]?.meanings[0]?.definitions[0]?.definition || 'No definition found.');
+      } catch (error) {
+        console.error('Error fetching definition:', error);
+        setDefinition('No definition found.');
+      }
+    };
+  
+    const handleMouseEnter = (word: string) => {
+      setHoveredWord(word);
+      fetchDefinition(word);
+    };
+  
+    const handleMouseLeave = () => {
+      setHoveredWord(null);
+      setDefinition(null);
+    };
   return (
     <div className="word-list">
       {words.length > 0 ? (
         <div className="word-list__columns">
           <div className="word-list__column">
-            {words.slice(0, Math.ceil(words.length / 3)).map((word, index) => (
-              <p key={index} className="word-list__word">{word}</p>
+            {words.slice(0, Math.ceil(words.length / 2)).map((word, index) => (
+              <p key={index}
+              className="word-list__word"
+              onMouseEnter={() => handleMouseEnter(word)}
+              onMouseLeave={handleMouseLeave}>{word}</p>
             ))}
           </div>
           <div className="word-list__column">
-            {words.slice(Math.ceil(words.length / 3)).map((word, index) => (
-              <p key={index} className="word-list__word">{word}</p>
+            {words.slice(Math.ceil(words.length / 2)).map((word, index) => (
+              <p key={index}
+              className="word-list__word"
+              onMouseEnter={() => handleMouseEnter(word)}
+              onMouseLeave={handleMouseLeave}>{word}</p>
             ))}
           </div>
-          <div className="word-list__column">
-            {words.slice(Math.ceil(words.length / 3)).map((word, index) => (
-              <p key={index} className="word-list__word">{word}</p>
-            ))}
-          </div>
+          
         </div>
       ) : (
         <div className="word-list__content">
@@ -37,6 +65,11 @@ const WordList = ({ words }: WordListProps): JSX.Element => {
               </g>
             </svg>
           </div>
+        </div>
+      )}
+       {hoveredWord && definition && (
+        <div className="word-list__definition">
+          <strong>{hoveredWord}:</strong> {definition}
         </div>
       )}
     </div>
