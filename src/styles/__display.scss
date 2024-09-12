@@ -1,9 +1,8 @@
 .display {
   display: flex;
-  flex-direction: row; /* Arrange elements horizontally */
-  justify-content: center; /* Horizontally center the child elements */
-  //align-items: center; /* Vertically center the child elements */
-  text-align: center; /* Center text content */
+  flex-direction: row; 
+  justify-content: center; 
+  text-align: center; 
     &__controls {
       display: flex;
       flex-direction: column;

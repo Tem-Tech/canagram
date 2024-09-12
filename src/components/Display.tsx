@@ -1,13 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './../styles/__display.scss'; 
 
 type DisplayProps = {
   letters: string[];
+  onPatternChange: (pattern: string) => void;
 };
 
-const Display = ({ letters }: DisplayProps): JSX.Element => {
+const Display = ({ letters, onPatternChange }: DisplayProps): JSX.Element => {
   const [boxCount, setBoxCount] = useState<number>(5);
 
+  const generatePattern = () => {
+    let pattern = '';
+    for (let i = 0; i < boxCount; i++) {
+      if (letters[i]) {
+        pattern += letters[i];
+      }
+    }
+    return pattern;
+  };
+  useEffect(() => {
+    const pattern = generatePattern();
+    onPatternChange(pattern); 
+  }, [letters, boxCount]);
   const handleIncrease = () => {
     setBoxCount(boxCount + 1);
   };
@@ -46,3 +60,5 @@ const Display = ({ letters }: DisplayProps): JSX.Element => {
 };
 
 export default Display;
+/* loop through the letters array and push each character into a "pattern" string which formms the api call. 
+Extract this string and send to keyboard component*/

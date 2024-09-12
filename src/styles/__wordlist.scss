@@ -33,9 +33,23 @@
         animation: bounce 2s infinite;
       }
     }
+
+  &__columns {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__column {
+    width: 48%;
+    text-align: left; 
+  }
+
+  &__word {
+    margin: 0.5rem 0;
+    list-style-type: none; 
+  }
   }
   
-  // Correct placement of keyframes
   @keyframes bounce {
     0%,
     25%,
