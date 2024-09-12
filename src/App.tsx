@@ -1,15 +1,19 @@
 import { useState } from 'react';
-import { fetchWords } from './../apiService'; 
-import './../src/styles/App.css';
+import { fetchWords } from './../apiService';
+import './styles/App.css';
 import Heading from './components/Heading';
 import Display from './components/Display';
 import Keyboard from './components/Keyboard';
 import WordList from './components/Wordlist';
-//import Navbar from './components/Navbar';
+
+type Word = {
+  word: string;
+  score: number;
+};
 
 function App() {
   const [letters, setLetters] = useState<string[]>([]);
-  const [words, setWords] = useState<string[]>([]);
+  const [words, setWords] = useState<Word[]>([]);
   const [pattern, setPattern] = useState<string>(''); 
 
   const handleKeyClick = (key: string) => {
@@ -21,13 +25,15 @@ function App() {
   };
 
   const handleSearch = async () => {
-    if (pattern) {
-      try {
-        const result = await fetchWords(pattern); 
-        setWords(result.slice(0, 10).map((wordObj: any) => wordObj.word)); 
-      } catch (error) {
-        console.error('Failed to fetch words:', error);
-      }
+    const query = letters.join('');
+    try {
+      const result = await fetchWords(query); 
+      setWords(result.slice(0, 30).map((wordObj: any) => ({
+        word: wordObj.word,
+        score: wordObj.score || 0 
+      })));
+    } catch (error) {
+      console.error('Error fetching words:', error);
     }
   };
 
@@ -44,7 +50,7 @@ function App() {
   return (
     <>
       <Heading />  
-      <WordList words={words} />
+      {words.length > 0 && <WordList words={words} />}
       <Display letters={letters} onPatternChange={handlePatternChange} />
       <Keyboard onClick={handleKeyClick} onSearch={handleSearch} onRefresh={handleRefresh} />
     </>
