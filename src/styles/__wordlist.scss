@@ -48,6 +48,16 @@
     margin: 0.5rem 0;
     list-style-type: none; 
   }
+  &__definition {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    max-width: 12rem; 
+    word-wrap: break-word; /* Breaks long words to fit within the box */
+    padding: 10px;
+    z-index: 10; /* Ensure the box is above other elements */
+    font-size: 0.85rem;
+     /* Adjust font size for better fitting */
+  }
   }
   
   @keyframes bounce {

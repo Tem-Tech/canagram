@@ -145,7 +145,8 @@ const WordList = ({ words }: WordListProps): JSX.Element => {
       )}
 
       {hoveredWord && definition && (
-        <div className="word-list__definition">
+        <div className="word-list__definition"
+        >
           <strong>{hoveredWord}:</strong> {definition}
         </div>
       )}

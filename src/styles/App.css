@@ -5,6 +5,9 @@
   width: 66.66%;
   max-width: 90%;
   margin: 4rem auto;
+  align-items: center; /* Center keys vertically */
+  justify-items: start; /* Align alphabet keys to the start */
+  grid-auto-flow: dense; /* Allow keys to fill in grid automatically */
 }
 
 .keyboard__key {
@@ -23,6 +26,14 @@
 }
 .keyboard__key:active {
   background-color: rgba(192, 192, 192, 0.4784313725);
+}
+
+.keyboard__special-keys {
+  grid-column-start: span 4; /* Make the special keys start at the right */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-self: end; /* Align special keys to the right end */
 }
 
 .tiles {

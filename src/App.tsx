@@ -36,7 +36,15 @@ function App() {
       console.error('Error fetching words:', error);
     }
   };
+/*const handleSearch = async () => {
+  const query = letters.join(''); // Convert array to string
+  const result = await fetchWords(query); // Fetch words from the API
 
+  // Extract words, filter out duplicates, and sort them alphabetically
+  const uniqueWords = Array.from(new Set(result.map((wordObj: any) => wordObj.word))).sort();
+
+  setWords(uniqueWords.slice(0, 30)); // Limit to top 30
+}; */
   const handleRefresh = () => {
     setLetters([]); 
     setWords([]);   
