@@ -1,0 +1,12 @@
+.settings-menu {
+    .navbar__item {
+      cursor: pointer;
+    }
+  
+    .nav-item__cross {
+      cursor: pointer;
+      position: absolute;
+  
+      filter: invert(1); 
+    }
+  }

@@ -1,34 +1,55 @@
-/*import './NavMenu.scss';
-import blackcross from './../assets/black-cross.png';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import menu from './../assets/canagram.svg';
+import blackcross from './../assets/cross.svg';
+import './../styles/__navmenu.scss';
 
-type NavMenuProps = {
-    onClose: () => void;
-};
+const NavMenu = () => {
+  const [showMenu, setShowMenu] = useState(false);
 
-const NavMenu = ({ onClose }: NavMenuProps) => {
-    return (
-        <div className="nav-menu">
-            <div className="nav-menu__content">
-                <img
-                    className="nav-item__cross"
-                    src={blackcross}
-                    alt="black-cross"
-                    onClick={onClose}
-                />
-                <ul className="nav-menu__links">
-                    <li>
-                        <Link to="/" className="navbar__link">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/page1" className="navbar__link">Page 1</Link>
-                    </li>
-                    <li>
-                        <Link to="/page2" className="navbar__link">Page 2</Link>
-                    </li>
-                </ul>
-            </div>
+  const handleToggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
+  return (
+    <div className="nav-menu">
+      
+      <img
+        src={menu}
+        className="navbar__item"
+        alt="menu icon"
+        onClick={handleToggleMenu}
+        aria-label="Toggle menu"
+      />
+
+      
+      {showMenu && (
+        <div className="nav-menu__content">
+          
+          <img
+            className="nav-item__cross"
+            src={blackcross}
+            alt="close menu"
+            onClick={handleToggleMenu}
+            aria-label="Close menu"
+          />
+          <ul className="nav-menu__links">
+            <li>
+              <Link to="/" className="navbar__link" onClick={handleToggleMenu}
+              >Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/page1" className="navbar__link" onClick={handleToggleMenu}>Word Finder</Link>
+            </li>
+            <li>
+              <Link to="/page2" className="navbar__link" onClick={handleToggleMenu}>Dictionary Mode</Link>
+            </li>
+          </ul>
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
-export default NavMenu;*/
+export default NavMenu;
