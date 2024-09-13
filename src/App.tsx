@@ -50,7 +50,7 @@ function App() {
   return (
     <>
       <Heading />  
-      {words.length > 0 && <WordList words={words} />}
+      <WordList words={words} />
       <Display letters={letters} onPatternChange={handlePatternChange} />
       <Keyboard onClick={handleKeyClick} onSearch={handleSearch} onRefresh={handleRefresh} />
     </>

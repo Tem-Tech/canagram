@@ -15,6 +15,7 @@ const WordList = ({ words }: WordListProps): JSX.Element => {
   const [hoveredWord, setHoveredWord] = useState<string | null>(null);
   const [sortedWords, setSortedWords] = useState<Word[]>([]);
   const [sortOption, setSortOption] = useState('alphabetical');
+  const [excludeNoDefinition, setExcludeNoDefinition] = useState(false);
 
   const fetchDefinition = async (word: string) => {
     try {
@@ -23,16 +24,16 @@ const WordList = ({ words }: WordListProps): JSX.Element => {
         throw new Error('Failed to fetch definition');
       }
       const data = await response.json();
-      setDefinition(data[0]?.meanings[0]?.definitions[0]?.definition || 'No definition found.');
+      return data[0]?.meanings[0]?.definitions[0]?.definition || null;
     } catch (error) {
       console.error('Error fetching definition:', error);
-      setDefinition('No definition found.');
+      return null;
     }
   };
 
   const handleMouseEnter = (word: string) => {
     setHoveredWord(word);
-    fetchDefinition(word);
+    fetchDefinition(word).then((definition) => setDefinition(definition || 'No definition found.'));
   };
 
   const handleMouseLeave = () => {
@@ -41,58 +42,44 @@ const WordList = ({ words }: WordListProps): JSX.Element => {
   };
 
   useEffect(() => {
-    const sorted = [...words].sort((a, b) => {
-      if (sortOption === 'alphabetical') {
-        return a.word.localeCompare(b.word);
-      } else if (sortOption === 'popularity') {
-        return (b.score || 0) - (a.score || 0);
+    const sortWords = async () => {
+      let filteredWords = [...words];
+
+      if (excludeNoDefinition) {
+        filteredWords = await Promise.all(
+          words.map(async (wordObj) => {
+            const definition = await fetchDefinition(wordObj.word);
+            return definition ? wordObj : null;
+          })
+        ).then((results) => results.filter((wordObj) => wordObj !== null) as Word[]);
       }
-      return 0;
-    });
-    setSortedWords(sorted);
-  }, [words, sortOption]);
+
+      const sorted = filteredWords.sort((a, b) => {
+        if (sortOption === 'alphabetical') {
+          return a.word.localeCompare(b.word);
+        } else if (sortOption === 'popularity') {
+          return (b.score || 0) - (a.score || 0);
+        }
+        return 0;
+      });
+
+      setSortedWords(sorted);
+    };
+
+    sortWords();
+  }, [words, sortOption, excludeNoDefinition]);
 
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSortOption(event.target.value);
   };
 
+  const handleExcludeNoDefinitionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setExcludeNoDefinition(event.target.checked);
+  };
+
   return (
     <div className="word-list">
-      {words.length > 0 && (
-        <div className="word-list__controls">
-          <label htmlFor="sort-options">Sort by: </label>
-          <select
-            id="sort-options"
-            value={sortOption}
-            onChange={handleSortChange}
-            className="word-list__dropdown"
-          >
-            <option value="alphabetical">Alphabetical</option>
-            <option value="popularity">Popularity</option>
-          </select>
-        </div>
-      )}
-
-      {sortedWords.length > 0 ? (
-        <div className="word-list__columns">
-          {[...Array(3)].map((_, colIndex) => (
-            <div key={colIndex} className="word-list__column">
-              {sortedWords
-                .slice(colIndex * 10, (colIndex + 1) * 10)
-                .map(({ word }, index) => (
-                  <p
-                    key={index}
-                    className="word-list__word"
-                    onMouseEnter={() => handleMouseEnter(word)}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    {word}
-                  </p>
-                ))}
-            </div>
-          ))}
-        </div>
-      ) : (
+      {words.length === 0 && sortedWords.length === 0 ? (
         <div className="word-list__content">
           <h3 className="word-list__title">Get Started</h3>
           <p className="word-list__subtitle">Enter some letters...</p>
@@ -112,6 +99,49 @@ const WordList = ({ words }: WordListProps): JSX.Element => {
             </svg>
           </div>
         </div>
+      ) : (
+        <>
+          <div className="word-list__controls">
+            <label htmlFor="sort-options">Sort by: </label>
+            <select
+              id="sort-options"
+              value={sortOption}
+              onChange={handleSortChange}
+              className="word-list__dropdown"
+            >
+              <option value="alphabetical">Alphabetical</option>
+              <option value="popularity">Popularity</option>
+            </select>
+            <label htmlFor="exclude-no-definition">
+              <input
+                type="checkbox"
+                id="exclude-no-definition"
+                checked={excludeNoDefinition}
+                onChange={handleExcludeNoDefinitionChange}
+              />
+              Exclude words without definitions
+            </label>
+          </div>
+
+          <div className="word-list__columns">
+            {[...Array(3)].map((_, colIndex) => (
+              <div key={colIndex} className="word-list__column">
+                {sortedWords
+                  .slice(colIndex * 10, (colIndex + 1) * 10)
+                  .map(({ word }, index) => (
+                    <p
+                      key={index}
+                      className="word-list__word"
+                      onMouseEnter={() => handleMouseEnter(word)}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      {word}
+                    </p>
+                  ))}
+              </div>
+            ))}
+          </div>
+        </>
       )}
 
       {hoveredWord && definition && (
@@ -124,3 +154,31 @@ const WordList = ({ words }: WordListProps): JSX.Element => {
 };
 
 export default WordList;
+
+
+
+   /* <div className="word-list">
+       
+
+        {sortedWords.length > 0 ? (
+            <div className="word-list__columns">
+                {[...Array(3)].map((_, colIndex) => (
+                    <div key={colIndex} className="word-list__column">
+                        {sortedWords
+                            .slice(colIndex * 10, (colIndex + 1) * 10)
+                            .map(({ word }, index) => (
+                                <p
+                                    key={index}
+                                    className="word-list__word"
+                                    onMouseEnter={() => handleMouseEnter(word)}
+                                    onMouseLeave={handleMouseLeave}
+                                >
+                                    {word}
+                                </p>
+                            ))}
+                    </div>
+                ))}
+            </div>
+        ) : 
+};*/
+
