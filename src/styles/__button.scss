@@ -1,19 +1,11 @@
 a{text-decoration: none;
     :hover{    box-shadow:2px 2px 5px #f67b07 ;
     }
-}.pageButtons {
-    display: flex;
-    flex-direction: row;
-    color: white;
-    padding: 2rem 4rem;
-    border: none;
-    border-radius:20px;
+}
+.pageButtons{
+    margin: 5rem 2rem;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.2s ease-in-out;
-    box-shadow:2px 2px 5px #fff ;
-    margin: 4rem auto;
-  
-   
-  }
+    padding: 0.7rem 2rem;
+    transition: background-color 0.5s ease-in-out;
+    box-shadow: 0 4px 8px #f9f6f66e; 
+}

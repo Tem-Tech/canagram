@@ -102,6 +102,7 @@ const WordList = ({ words }: WordListProps): JSX.Element => {
       ) : (
         <>
           <div className="word-list__controls">
+           <div>
             <label htmlFor="sort-options">Sort by: </label>
             <select
               id="sort-options"
@@ -112,6 +113,7 @@ const WordList = ({ words }: WordListProps): JSX.Element => {
               <option value="alphabetical">Alphabetical</option>
               <option value="popularity">Popularity</option>
             </select>
+            </div>
             <label htmlFor="exclude-no-definition">
               <input
                 type="checkbox"
@@ -119,7 +121,7 @@ const WordList = ({ words }: WordListProps): JSX.Element => {
                 checked={excludeNoDefinition}
                 onChange={handleExcludeNoDefinitionChange}
               />
-              Exclude words without definitions
+              With definitions
             </label>
           </div>
 
@@ -156,30 +158,4 @@ const WordList = ({ words }: WordListProps): JSX.Element => {
 
 export default WordList;
 
-
-
-   /* <div className="word-list">
-       
-
-        {sortedWords.length > 0 ? (
-            <div className="word-list__columns">
-                {[...Array(3)].map((_, colIndex) => (
-                    <div key={colIndex} className="word-list__column">
-                        {sortedWords
-                            .slice(colIndex * 10, (colIndex + 1) * 10)
-                            .map(({ word }, index) => (
-                                <p
-                                    key={index}
-                                    className="word-list__word"
-                                    onMouseEnter={() => handleMouseEnter(word)}
-                                    onMouseLeave={handleMouseLeave}
-                                >
-                                    {word}
-                                </p>
-                            ))}
-                    </div>
-                ))}
-            </div>
-        ) : 
-};*/
 
