@@ -54,7 +54,7 @@ function App() {
 
   return (
     <div >
-      <Router basename='/canagram'>
+      {/* <Router basename='/canagram'> */}
         <Navbar />
         <Heading />
 
@@ -85,7 +85,7 @@ function App() {
             }
           />
         </Routes>
-      </Router>
+      {/* </Router> */}
     </div>
   );
 }
