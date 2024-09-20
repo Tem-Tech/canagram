@@ -54,13 +54,13 @@ function App() {
 
   return (
     <div >
-      {/* <Router basename='/canagram'> */}
+      <Router>
         <Navbar />
         <Heading />
 
         <Routes>
           <Route
-            path="/"
+            path="/canagram"
             element={
               <>
                 <Buttons />
@@ -85,7 +85,7 @@ function App() {
             }
           />
         </Routes>
-      {/* </Router> */}
+      </Router>
     </div>
   );
 }
