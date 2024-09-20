@@ -60,5 +60,3 @@ const Display = ({ letters, onPatternChange }: DisplayProps): JSX.Element => {
 };
 
 export default Display;
-/* loop through the letters array and push each character into a "pattern" string which formms the api call. 
-Extract this string and send to keyboard component*/

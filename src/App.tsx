@@ -19,11 +19,8 @@ function App() {
   const [letters, setLetters] = useState<string[]>([]);
   const [words, setWords] = useState<Word[]>([]);
   const [pattern, setPattern] = useState<string>('');
-  const [theme, setTheme] = useState('light');
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
-  };
+ 
   const handleKeyClick = (key: string) => {
     if (key === 'Backspace') {
       setLetters((prevLetters) => prevLetters.slice(0, -1));
@@ -44,15 +41,7 @@ function App() {
       console.error('Error fetching words:', error);
     }
   };
-  /*const handleSearch = async () => {
-    const query = letters.join(''); // Convert array to string
-    const result = await fetchWords(query); // Fetch words from the API
-  
-    // Extract words, filter out duplicates, and sort them alphabetically
-    const uniqueWords = Array.from(new Set(result.map((wordObj: any) => wordObj.word))).sort();
-  
-    setWords(uniqueWords.slice(0, 30)); // Limit to top 30
-  }; */
+
   const handleRefresh = () => {
     setLetters([]);
     setWords([]);
@@ -64,8 +53,8 @@ function App() {
   };
 
   return (
-    <div className={`app ${theme}`}>
-      <Router>
+    <div >
+      <Router basename='/canagram'>
         <Navbar />
         <Heading />
 

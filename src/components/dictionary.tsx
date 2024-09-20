@@ -24,11 +24,10 @@ const Dictionary = () => {
             const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
             const data = await response.json();
 
-            console.log('API response:', data);
 
             if (data.length > 0) {
-                setMeanings(data[0].meanings); // Set all meanings (definitions)
-                setPhonetics(data[0].phonetics); // Set phonetics
+                setMeanings(data[0].meanings); 
+                setPhonetics(data[0].phonetics); 
             } else {
                 setMeanings([]);
             }

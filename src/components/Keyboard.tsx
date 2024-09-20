@@ -57,7 +57,3 @@ const Keyboard = ({ onClick, onSearch, onRefresh }: KeyboardProps): JSX.Element 
 };
 
 export default Keyboard;
-/* enter button has an on click event there should be a function that sends the API call; 
-send the string retrieved from display props as a search sequence and send data 
-fetched to the wordlist component.*/
-/*Make an enter button with an onclick function*/ 
