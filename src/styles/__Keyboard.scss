@@ -5,9 +5,9 @@
     width: 66.66%;
     max-width: 90%;
     margin: 4rem auto;
-    align-items: center; /* Center keys vertically */
-  justify-items: start; /* Align alphabet keys to the start */
-  grid-auto-flow: dense; /* Allow keys to fill in grid automatically */
+    align-items: center; 
+  justify-items: start; 
+  grid-auto-flow: dense; 
   }
   .keyboard__key {
     padding: 10px;
@@ -30,11 +30,11 @@
     }
   }
   .keyboard__special-keys {
-    grid-column-start: span 4; /* Make the special keys start at the right */
+    grid-column-start: span 4; 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    justify-self: end; /* Align special keys to the right end */
+    justify-self: end; 
   }
 .tiles {
     background: rgb(214, 140, 43);

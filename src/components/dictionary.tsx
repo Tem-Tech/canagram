@@ -24,6 +24,8 @@ const Dictionary = () => {
     const [phonetics, setPhonetics] = useState<Phonetic[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [selectedPartOfSpeech, setSelectedPartOfSpeech] = useState<string>('');
+
 
     const fetchDefinition = async (searchTerm: string) => {
         if (!searchTerm) return;
@@ -76,6 +78,7 @@ const Dictionary = () => {
         setSearchedWord('');
         setMeanings([]);
         setPhonetics([]);
+        setSelectedPartOfSpeech('');
         setError(null);
         navigate('/dictionary');
     };
@@ -84,7 +87,15 @@ const Dictionary = () => {
         const audio = new Audio(audioUrl);
         audio.play();
     };
+    const handlePartOfSpeechChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedPartOfSpeech(event.target.value);
+    };
 
+    const filteredMeanings = selectedPartOfSpeech
+        ? meanings.filter((meaning) => meaning.partOfSpeech === selectedPartOfSpeech)
+        : meanings;
+
+    const partsOfSpeech = [...new Set(meanings.map((meaning) => meaning.partOfSpeech))]; 
     return (
         <div className="dictionary">
             <input
@@ -95,12 +106,12 @@ const Dictionary = () => {
                 placeholder="Type a word..."
             />
             <div>
-            <button className="dictionary__searchButton" onClick={handleSearch} disabled={loading}>
-                {loading ? 'Loading...' : 'Search'}
-            </button>
-            <button className="dictionary__resetButton" onClick={resetDictionary}>
-                Reset
-            </button></div>
+                <button className="dictionary__searchButton" onClick={handleSearch} disabled={loading}>
+                    {loading ? 'Loading...' : 'Search'}
+                </button>
+                <button className="dictionary__resetButton" onClick={resetDictionary}>
+                    Reset
+                </button></div>
 
             {error && <p className="dictionary__error">{error}</p>}
 
@@ -114,7 +125,7 @@ const Dictionary = () => {
                             <div className="dictionary__phonetic">
                                 <small>{phonetics[0].text}</small>
                                 {phonetics[0].audio && (
-                                    <button className="wordSound" onClick={() => playAudio(phonetics[0].audio)}>
+                                    <button className="dictionary__phonetic wordSound" onClick={() => playAudio(phonetics[0].audio)}>
                                         🔊
                                     </button>
                                 )}
@@ -122,12 +133,26 @@ const Dictionary = () => {
 
                         </div>
                     )}
+                       <label htmlFor="partOfSpeech">Part of speech:</label>
+                    <select
+                        id="partOfSpeech"
+                        value={selectedPartOfSpeech}
+                        onChange={handlePartOfSpeechChange}
+                        className="dictionary__filter"
+                    >
+                        <option value="">All</option>
+                        {partsOfSpeech.map((partOfSpeech) => (
+                            <option key={partOfSpeech} value={partOfSpeech}>
+                                {partOfSpeech}
+                            </option>
+                        ))}
+                    </select>
                     <div className="dictionary__meanings">
-                        {meanings.map((meaning, index) => (
+                        {filteredMeanings.map((meaning, index) => (
                             <div key={index} className="dictionary__meaning">
                                 <p><span>{meaning.partOfSpeech + " "}</span>
                                     {meaning.definitions[0].definition}</p>
-                                    {meaning.definitions[0].example && (
+                                {meaning.definitions[0].example && (
                                     <p className="dictionary__example">
                                         "{meaning.definitions[0].example}"
                                     </p>

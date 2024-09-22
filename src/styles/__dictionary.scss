@@ -54,7 +54,9 @@
 
         &__phonetic {
             margin-bottom: 10px;
-
+            &__wordSound{
+                padding: none;
+            }
             small {
                 font-size: 0.85rem;
             }
@@ -90,5 +92,13 @@
     &__error {
         color: red;
         margin-top: 10px;
+    }
+
+    &__filter {
+        margin-top: 10px;
+        padding: 0.2rem;
+        border: 1px solid #cccccc80;
+        border-radius: 0.5rem;
+        text-align: center;
     }
 }
