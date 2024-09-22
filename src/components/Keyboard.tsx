@@ -1,9 +1,10 @@
+import { useEffect } from 'react';
 import './../styles/__Keyboard.scss';
 
 type KeyboardProps = {
   onClick: (key: string) => void;
-  onSearch: () => void;   
-  onRefresh: () => void; 
+  onSearch: () => void;
+  onRefresh: () => void;
 };
 
 function generateAlphabet(capital: boolean = true) {
@@ -15,7 +16,38 @@ function generateAlphabet(capital: boolean = true) {
 }
 
 const Keyboard = ({ onClick, onSearch, onRefresh }: KeyboardProps): JSX.Element => {
-  const letters = generateAlphabet(); 
+  const letters = generateAlphabet();
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const { key, shiftKey } = event;
+      if ((shiftKey && key === '?') || key === ' ') {
+        event.preventDefault(); 
+        onClick('?');           
+      } 
+      else if (/^[a-zA-Z]$/.test(key)) {
+        onClick(key.toUpperCase()); 
+      } 
+      else if (key === 'Backspace') {
+        event.preventDefault(); 
+        onClick('Backspace');
+      } 
+      else if (key === 'Enter') {
+        event.preventDefault(); 
+        onSearch();
+      } 
+      else if (key === 'F5') {
+        event.preventDefault(); 
+        onRefresh();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClick, onSearch, onRefresh]);
 
   return (
     <div className="keyboard">
@@ -42,13 +74,13 @@ const Keyboard = ({ onClick, onSearch, onRefresh }: KeyboardProps): JSX.Element 
       </button>
       <button
         className="keyboard__key keyboard__key--special"
-        onClick={onSearch} 
+        onClick={onSearch}
       >
-        🔍 
+        🔍
       </button>
       <button
         className="keyboard__key keyboard__key--special"
-        onClick={onRefresh} 
+        onClick={onRefresh}
       >
         🔄
       </button>

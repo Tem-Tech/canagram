@@ -20,6 +20,7 @@ const Dictionary = () => {
     const { word } = useParams<{ word: string }>();
     const navigate = useNavigate();
     const [searchedWord, setSearchedWord] = useState(word || '');
+    const [fetchedWord, setFetchedWord] = useState('');
     const [meanings, setMeanings] = useState<Meaning[]>([]);
     const [phonetics, setPhonetics] = useState<Phonetic[]>([]);
     const [loading, setLoading] = useState(false);
@@ -39,6 +40,7 @@ const Dictionary = () => {
             if (data.length > 0) {
                 setMeanings(data[0].meanings);
                 setPhonetics(data[0].phonetics);
+                setFetchedWord(searchTerm);
             } else {
                 setError('No definitions found.');
                 setMeanings([]);
@@ -117,7 +119,7 @@ const Dictionary = () => {
 
             {!loading && meanings.length > 0 && (
                 <div className="dictionary__result">
-                    <h2 className="dictionary__word">{searchedWord.charAt(0).toUpperCase() + searchedWord.slice(1)}</h2>
+                    <h2 className="dictionary__word">{fetchedWord.charAt(0).toUpperCase() + fetchedWord.slice(1)}</h2>
 
                     {phonetics.length > 0 && (
                         <div className="dictionary__phonetics">
