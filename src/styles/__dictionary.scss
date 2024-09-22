@@ -4,7 +4,7 @@
     align-items: center;
     padding: 20px;
     margin: 4rem auto;
-
+    
     input {
         width: 30rem;
         padding: 10px;
@@ -13,11 +13,11 @@
         border-radius: 1rem;
         margin-bottom: 10px;
     }
-
-    .searchButton {
+    &__searchButton,
+    &__resetButton {
         margin-top: 2rem;
+        
     }
-
     button {
         padding: 0.5rem 2rem;
         color: white;
@@ -31,45 +31,64 @@
             cursor: not-allowed;
         }
     }
+    
+    &__resetButton {
+        margin-left: 1rem;
+    }
 
     &__result {
-        margin-top: 20px;
+        margin-top: 4rem;
         text-align: left;
+        max-width: 25rem;
 
         h2 {
             margin-bottom: 10px;
         }
-
-        .wordSound {
-            margin: 1rem;
-            padding: 0.4rem;
-        }
-
     }
 
+    &__phonetics {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &__phonetic {
+            margin-bottom: 10px;
+
+            small {
+                font-size: 0.85rem;
+            }
+        }
+    }
     &__meanings {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
 
     }
-
     &__meaning {
- //       flex: 1;
+        margin-top: 20px;
         max-width: 250px;
-
         span {
             font-style: italic;
             color: #555;
             font-size: .85rem;
         }
+        
     }
 
+    &__definition {
+        margin-bottom: 10px;
+    }
 
+    &__example {
+        margin-top: 5px;
+        font-style: italic;
+        color: #555;
+    }
 
-&__example {
-    margin-top: 5px;
-    font-style: italic;
-    color: #555;
-}
+    &__error {
+        color: red;
+        margin-top: 10px;
+    }
 }

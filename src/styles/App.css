@@ -130,49 +130,98 @@
   z-index: 8;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: var(--navbar-bg-color);
-  color: var(--navbar-text-color);
-}
-.navbar__logo {
-  font-size: 1.5rem;
-}
-.navbar__links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-.navbar__links .navbar__link {
+a {
   text-decoration: none;
-  color: inherit;
 }
-.navbar__links .navbar__link:hover {
-  text-decoration: underline;
+a :hover {
+  box-shadow: 2px 2px 5px #f67b07;
 }
-.navbar__theme-toggle {
+
+.pageButtons {
+  margin: 5rem 2rem;
   cursor: pointer;
-  background: none;
+  padding: 0.7rem 2rem;
+  transition: background-color 0.5s ease-in-out;
+  box-shadow: 0 4px 8px rgba(249, 246, 246, 0.431372549);
+}
+
+.dictionary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 4rem auto;
+}
+.dictionary input {
+  width: 30rem;
+  padding: 10px;
+  border: 1px solid rgba(204, 204, 204, 0.5019607843);
+  box-shadow: 0 4px 8px rgba(249, 246, 246, 0.432);
+  border-radius: 1rem;
+  margin-bottom: 10px;
+}
+.dictionary__searchButton, .dictionary__resetButton {
+  margin-top: 2rem;
+}
+.dictionary button {
+  padding: 0.5rem 2rem;
+  color: white;
   border: none;
-  color: inherit;
-  font-size: 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
 }
-
-body.light {
-  --navbar-bg-color: #f0f0f0;
-  --navbar-text-color: #333;
-  background-color: #ffffff;
-  color: #333;
+.dictionary button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
-
-body.dark {
-  --navbar-bg-color: #333;
-  --navbar-text-color: #f0f0f0;
-  background-color: #000000;
-  color: #f0f0f0;
+.dictionary__resetButton {
+  margin-left: 1rem;
+}
+.dictionary__result {
+  margin-top: 4rem;
+  text-align: left;
+  max-width: 25rem;
+}
+.dictionary__result h2 {
+  margin-bottom: 10px;
+}
+.dictionary__phonetics {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.dictionary__phonetics__phonetic {
+  margin-bottom: 10px;
+}
+.dictionary__phonetics__phonetic small {
+  font-size: 0.85rem;
+}
+.dictionary__meanings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.dictionary__meaning {
+  margin-top: 20px;
+  max-width: 250px;
+}
+.dictionary__meaning span {
+  font-style: italic;
+  color: #555;
+  font-size: 0.85rem;
+}
+.dictionary__definition {
+  margin-bottom: 10px;
+}
+.dictionary__example {
+  margin-top: 5px;
+  font-style: italic;
+  color: #555;
+}
+.dictionary__error {
+  color: red;
+  margin-top: 10px;
 }
 
 #root {
@@ -180,21 +229,6 @@ body.dark {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em rgba(100, 108, 255, 0.6666666667));
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em rgba(97, 218, 251, 0.6666666667));
 }
 
 /*@keyframes logo-spin {

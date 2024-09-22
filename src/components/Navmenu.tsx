@@ -43,7 +43,7 @@ const NavMenu = () => {
               <Link to="/page1" className="navbar__link" onClick={handleToggleMenu}>Word Finder</Link>
             </li>
             <li>
-              <Link to="/page2" className="navbar__link" onClick={handleToggleMenu}>Dictionary Mode</Link>
+              <Link to="/dictionary" className="navbar__link" onClick={handleToggleMenu}>Dictionary Mode</Link>
             </li>
           </ul>
         </div>

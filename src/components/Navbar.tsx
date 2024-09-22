@@ -5,9 +5,12 @@ import './../styles/__Navbar.scss';
 const Navbar = (): JSX.Element => {
   return (
     <nav className="navbar">
-      <NavMenu />
-     
+    
+        <NavMenu />
+
       <SettingsMenu />
+     
+      
     </nav>
   );
 };

@@ -26,20 +26,17 @@ A React application built with TypeScript and Vite that helps you find word sugg
 - [] Crossword mode, where user can search for word suggestions based on related words
 - [] Vocabulary page, user can add previously searched words to a vocab list which can be easily reviewed
 - [] Animations for displaying fetched data
-- 
 
 ## Usage
 
 To run the app locally:
 
-1. Clone this repository:
-
-   ```bash
-   git clone 
+1. Clone this repository with `git clone https://github.com/Tem-Tech/canagram`:
 2. Run the command `npm install` to install node packages
 3. Run the command `npm run dev` to start the development server on your local browser
 
 
+   ```bash
 git clone <https://github.com/Tem-Tech/canagram>
 
 cd canagram

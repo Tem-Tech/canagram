@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './../styles/__WordList.scss';
 
 type Word = {
@@ -9,8 +10,7 @@ type Word = {
 type WordListProps = {
   words: Word[];
 };
-
-const WordList = ({ words }: WordListProps): JSX.Element => {
+const WordList = ({ words }: WordListProps) => {
   const [definition, setDefinition] = useState<string | null>(null);
   const [hoveredWord, setHoveredWord] = useState<string | null>(null);
   const [sortedWords, setSortedWords] = useState<Word[]>([]);
@@ -126,9 +126,9 @@ const WordList = ({ words }: WordListProps): JSX.Element => {
           </div>
 
           <div className="word-list__columns">
-            {[...Array(3)].map((_, colIndex) => (
-              <div key={colIndex} className="word-list__column">
-                {sortedWords
+  {[...Array(3)].map((_, colIndex) => (
+    <div key={colIndex} className="word-list__column">
+    {sortedWords
                   .slice(colIndex * 10, (colIndex + 1) * 10)
                   .map(({ word }, index) => (
                     <p
@@ -137,12 +137,12 @@ const WordList = ({ words }: WordListProps): JSX.Element => {
                       onMouseEnter={() => handleMouseEnter(word)}
                       onMouseLeave={handleMouseLeave}
                     >
-                      {word}
+                      <Link to={`/dictionary/${word}`}>{word}</Link>
                     </p>
                   ))}
-              </div>
-            ))}
-          </div>
+    </div>
+  ))}
+</div>
         </>
       )}
 

@@ -7,7 +7,7 @@ const Buttons = () => {
       <Link to="/page1">
         <button className="pageButtons">Anagram Mode</button>
       </Link>
-      <Link to="/page2">
+      <Link to="/dictionary">
         <button className="pageButtons">Dictionary Mode</button>
       </Link>
     </div>

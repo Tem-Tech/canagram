@@ -1,4 +1,10 @@
 .settings-menu {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
     .navbar__item {
       cursor: pointer;
     }

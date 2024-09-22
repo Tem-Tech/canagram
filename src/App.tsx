@@ -20,7 +20,6 @@ function App() {
   const [words, setWords] = useState<Word[]>([]);
   const [pattern, setPattern] = useState<string>('');
 
- 
   const handleKeyClick = (key: string) => {
     if (key === 'Backspace') {
       setLetters((prevLetters) => prevLetters.slice(0, -1));
@@ -33,10 +32,12 @@ function App() {
     const query = letters.join('');
     try {
       const result = await fetchWords(query);
-      setWords(result.slice(0, 30).map((wordObj: any) => ({
-        word: wordObj.word,
-        score: wordObj.score || 0
-      })));
+      setWords(
+        result.slice(0, 30).map((wordObj: any) => ({
+          word: wordObj.word,
+          score: wordObj.score || 0,
+        }))
+      );
     } catch (error) {
       console.error('Error fetching words:', error);
     }
@@ -60,7 +61,7 @@ function App() {
 
         <Routes>
           <Route
-            path="/canagram"
+            path="/"
             element={
               <>
                 <Buttons />
@@ -76,11 +77,20 @@ function App() {
                 <Keyboard onClick={handleKeyClick} onSearch={handleSearch} onRefresh={handleRefresh} />
               </>
             }
-          />  <Route
-            path="/page2"
+          />
+          <Route
+            path="/dictionary"
             element={
               <>
-              <Dictionary />
+                <Dictionary />
+              </>
+            }
+          />
+          <Route
+            path="/dictionary/:word"
+            element={
+              <>
+                <Dictionary />
               </>
             }
           />
