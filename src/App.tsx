@@ -8,7 +8,7 @@ import Buttons from './components/Button';
 import Display from './components/Display';
 import Keyboard from './components/Keyboard';
 import WordList from './components/Wordlist';
-import Dictionary from './components/dictionary';
+import Dictionary from './components/Dictionary1';
 
 type Word = {
   word: string;
@@ -18,7 +18,6 @@ type Word = {
 function App() {
   const [letters, setLetters] = useState<string[]>([]);
   const [words, setWords] = useState<Word[]>([]);
-  const [pattern, setPattern] = useState<string>('');
 
   const handleKeyClick = (key: string) => {
     if (key === 'Backspace') {
@@ -46,11 +45,6 @@ function App() {
   const handleRefresh = () => {
     setLetters([]);
     setWords([]);
-    setPattern('');
-  };
-
-  const handlePatternChange = (newPattern: string) => {
-    setPattern(newPattern);
   };
 
   return (
@@ -73,7 +67,7 @@ function App() {
             element={
               <>
                 <WordList words={words} />
-                <Display letters={letters} onPatternChange={handlePatternChange} />
+                <Display letters={letters} />
                 <Keyboard onClick={handleKeyClick} onSearch={handleSearch} onRefresh={handleRefresh} />
               </>
             }
