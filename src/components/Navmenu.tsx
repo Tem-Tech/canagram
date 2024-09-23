@@ -35,7 +35,7 @@ const NavMenu = () => {
           />
           <ul className="nav-menu__links">
             <li>
-              <Link to="/canagram" className="navbar__link" onClick={handleToggleMenu}
+              <Link to="/canagram/" className="navbar__link" onClick={handleToggleMenu}
               >Home
               </Link>
             </li>

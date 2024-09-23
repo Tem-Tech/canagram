@@ -16,7 +16,7 @@ var NavMenu = function () {
             React.createElement("img", { className: "nav-item__cross", src: cross_svg_1["default"], alt: "close menu", onClick: handleToggleMenu, "aria-label": "Close menu" }),
             React.createElement("ul", { className: "nav-menu__links" },
                 React.createElement("li", null,
-                    React.createElement(react_router_dom_1.Link, { to: "/canagram", className: "navbar__link", onClick: handleToggleMenu }, "Home")),
+                    React.createElement(react_router_dom_1.Link, { to: "/canagram/", className: "navbar__link", onClick: handleToggleMenu }, "Home")),
                 React.createElement("li", null,
                     React.createElement(react_router_dom_1.Link, { to: "/canagram/page1", className: "navbar__link", onClick: handleToggleMenu }, "Word Finder")),
                 React.createElement("li", null,

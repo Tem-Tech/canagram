@@ -100,7 +100,7 @@ function App() {
             React.createElement(Navbar_1["default"], null),
             React.createElement(Heading_1["default"], null),
             React.createElement(react_router_dom_1.Routes, null,
-                React.createElement(react_router_dom_1.Route, { path: "/canagram", element: React.createElement(React.Fragment, null,
+                React.createElement(react_router_dom_1.Route, { path: "/canagram/", element: React.createElement(React.Fragment, null,
                         React.createElement(Button_1["default"], null)) }),
                 React.createElement(react_router_dom_1.Route, { path: "/canagram/page1", element: React.createElement(React.Fragment, null,
                         React.createElement(Wordlist_1["default"], { words: words }),
