@@ -1,0 +1,33 @@
+a {
+  text-decoration: none;
+}
+a :hover {
+  box-shadow: 2px 2px 5px #f67b07;
+}
+
+.pageButtons {
+  margin: 5rem 2rem;
+  cursor: pointer;
+  padding: 0.7rem 2rem;
+  transition: background-color 0.5s ease-in-out;
+  box-shadow: 0 4px 8px #f9f6f66e;
+}
+
+@media screen and (max-width: 375px) {
+  .pageButtons {
+    margin: 1rem;
+    margin-top: 3rem;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 576px) {
+  .pageButtons {
+    margin: 1rem;
+    margin-top: 3rem;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+  .pageButtons {
+    margin: 1rem;
+    margin-top: 3rem;
+  }
+}

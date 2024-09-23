@@ -1,3 +1,4 @@
+@import "./_media";
 .keyboard {
     display: grid;
     grid-template-columns: repeat(9, 40px); 
@@ -40,4 +41,28 @@
     background: rgb(214, 140, 43);
     background: linear-gradient(90deg, rgba(214, 140, 43, 1) 0%, rgba(255, 205, 46, 1) 35%, rgba(255, 230, 46, 1) 100%);
     border-radius: 5%;
+}
+
+@include small-phone {
+.keyboard{display: none;}
+}
+
+@include phone {
+.keyboard{
+  margin: 4rem 2rem;
+  grid-template-columns: repeat(7, 40px);
+}
+}
+
+@include tablet {
+  .keyboard{
+    margin: 4rem 2rem;
+    grid-template-columns: repeat(7, 50px);
+  }
+}
+
+
+@include tablet-landscape {
+
+
 }

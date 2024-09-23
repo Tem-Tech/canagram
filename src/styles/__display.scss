@@ -1,3 +1,4 @@
+@import "./_media";
 .display {
   display: flex;
   flex-direction: row; 
@@ -39,3 +40,26 @@
       font-size: 16px;
     }
   }
+
+@include small-phone {
+.display{
+  &__box{
+    width: 40px;
+    height: 40px;
+  }
+}
+}
+
+@include phone {
+
+}
+
+@include tablet {
+
+}
+
+
+@include tablet-landscape {
+
+
+}

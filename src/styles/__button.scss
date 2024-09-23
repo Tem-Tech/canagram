@@ -1,11 +1,37 @@
-a{text-decoration: none;
-    :hover{    box-shadow:2px 2px 5px #f67b07 ;
+@import "./_media";
+
+a {
+    text-decoration: none;
+
+    :hover {
+        box-shadow: 2px 2px 5px #f67b07;
     }
 }
-.pageButtons{
+
+.pageButtons {
     margin: 5rem 2rem;
     cursor: pointer;
     padding: 0.7rem 2rem;
     transition: background-color 0.5s ease-in-out;
-    box-shadow: 0 4px 8px #f9f6f66e; 
+    box-shadow: 0 4px 8px #f9f6f66e;
 }
+
+@include small-phone {
+    .pageButtons {
+margin: 1rem; 
+margin-top: 3rem;       
+    }
+}
+
+@include phone {  .pageButtons {
+    margin: 1rem; 
+    margin-top: 3rem;       
+        }}
+
+@include tablet {  .pageButtons {
+    margin: 1rem; 
+    margin-top: 3rem;       
+        }}
+
+
+@include tablet-landscape {}

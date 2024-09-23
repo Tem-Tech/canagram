@@ -137,7 +137,7 @@ const WordList = ({ words }: WordListProps) => {
                       onMouseEnter={() => handleMouseEnter(word)}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <Link to={`/dictionary/${word}`}>{word}</Link>
+                      <Link to={`/canagram/dictionary/${word}`}>{word}</Link>
                     </p>
                   ))}
     </div>

@@ -15,7 +15,7 @@ const SettingsMenu = () => {
       
       <img
         src={settings}
-        className="navbar__item"
+        className="nav-menu__icon"
         alt="settings icon"
         onClick={handleToggleSettings}
       />

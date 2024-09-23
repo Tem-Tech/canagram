@@ -1,0 +1,78 @@
+.word-list {
+  width: 66.66%;
+  max-width: 80%;
+  margin: 4rem auto;
+  padding: 1.5rem;
+  background-color: rgba(71, 69, 69, 0.673);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.word-list__controls {
+  display: flex;
+  justify-content: space-around;
+}
+.word-list__dropdown {
+  padding: 0.2rem;
+  border: 1px solid #cccccc80;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+.word-list__title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.word-list__subtitle {
+  font-size: 1rem;
+}
+.word-list__arrow {
+  margin-top: 1rem;
+  fill: #fff;
+}
+.word-list__arrow .arrow-down {
+  animation: bounce 2s infinite;
+}
+.word-list__columns {
+  display: flex;
+  justify-content: space-between;
+}
+.word-list__column {
+  width: 50%;
+  text-align: center;
+}
+.word-list__word {
+  margin: 0.5rem 0;
+  list-style-type: none;
+  font-size: 13px;
+}
+.word-list__definition {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  max-width: 12rem;
+  word-wrap: break-word;
+  padding: 10px;
+  z-index: 10;
+  font-size: 0.85rem;
+}
+
+@keyframes bounce {
+  0%, 25%, 50%, 75%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-12px);
+  }
+}
+@media screen and (max-width: 375px) {
+  .word-list {
+    max-width: 16rem;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 576px) {
+  .word-list {
+    max-width: 23rem;
+  }
+}

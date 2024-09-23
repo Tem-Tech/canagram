@@ -37,7 +37,7 @@ To run the app locally:
 
 
    ```bash
-   git clone <https://github.com/Tem-Tech/canagram>
+   git clone https://github.com/Tem-Tech/canagram
 
    cd canagram
 

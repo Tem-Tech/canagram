@@ -55,7 +55,7 @@ function App() {
 
         <Routes>
           <Route
-            path="/"
+            path="/canagram"
             element={
               <>
                 <Buttons />
@@ -63,7 +63,7 @@ function App() {
             }
           />
           <Route
-            path="/page1"
+            path="/canagram/page1"
             element={
               <>
                 <WordList words={words} />
@@ -73,7 +73,7 @@ function App() {
             }
           />
           <Route
-            path="/dictionary"
+            path="/canagram/dictionary"
             element={
               <>
                 <Dictionary />
@@ -81,7 +81,7 @@ function App() {
             }
           />
           <Route
-            path="/dictionary/:word"
+            path="/canagram/dictionary/:word"
             element={
               <>
                 <Dictionary />

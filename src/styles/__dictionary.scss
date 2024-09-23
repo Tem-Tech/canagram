@@ -1,23 +1,27 @@
+@import "./_media";
+
 .dictionary {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     margin: 4rem auto;
-    
+
     input {
-        width: 30rem;
+        width: 28rem;
         padding: 10px;
         border: 1px solid #cccccc80;
         box-shadow: 0 4px 8px rgba(249, 246, 246, 0.432);
         border-radius: 1rem;
         margin-bottom: 10px;
     }
+
     &__searchButton,
     &__resetButton {
         margin-top: 2rem;
-        
+
     }
+
     button {
         padding: 0.5rem 2rem;
         color: white;
@@ -31,15 +35,18 @@
             cursor: not-allowed;
         }
     }
-    
+
     &__resetButton {
         margin-left: 1rem;
+    }
+
+    &__filter {
+        margin: 0 1rem;
     }
 
     &__result {
         margin-top: 4rem;
         text-align: left;
-        max-width: 25rem;
 
         h2 {
             margin-bottom: 10px;
@@ -51,32 +58,41 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+    }
 
-        &__phonetic {
-            margin-bottom: 10px;
-            &__wordSound{
-                padding: none;
-            }
-            small {
-                font-size: 0.85rem;
-            }
+    &__phonetic {
+        margin-bottom: 10px;
+
+        .wordSound {
+
+            padding: 0.5rem;
+            margin: 0 1rem;
+        }
+
+        small {
+            font-size: 0.85rem;
         }
     }
+
+
     &__meanings {
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
         gap: 20px;
 
     }
+
     &__meaning {
         margin-top: 20px;
         max-width: 250px;
+
         span {
             font-style: italic;
             color: #555;
             font-size: .85rem;
         }
-        
+
     }
 
     &__definition {
@@ -100,5 +116,123 @@
         border: 1px solid #cccccc80;
         border-radius: 0.5rem;
         text-align: center;
+    }
+}
+
+
+@include small-phone {
+    .dictionary {
+        max-width: 210px;
+
+        &__buttons {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        input {
+            width: 14rem;
+        }
+
+        &__filter {
+            margin: 0 1rem;
+            padding: 1px;
+        }
+
+        &__phonetic {
+            .wordSound {
+                padding: 0.3rem;
+                margin: 0 1rem;
+            }
+        }
+
+        &__result {
+            margin-top: 4rem;
+            text-align: left;
+            max-width: 25rem;
+
+        }
+    }
+
+}
+
+@include phone {
+    .dictionary {
+        max-width: 250px;
+        margin: 2rem auto;
+
+        &__buttons {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        input {
+            width: 15rem;
+        }
+
+        &__filter {
+            margin: 0 1rem;
+        }
+
+        &__phonetic {
+            .wordSound {
+                padding: 0.3rem;
+                margin: 0 1rem;
+            }
+        }
+    }
+}
+
+@include tablet {
+    .dictionary {
+        max-width: 300px;
+        margin: 2rem auto;
+
+        &__buttons {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        input {
+            width: 15rem;
+        }
+
+        &__filter {
+            margin: 0 1rem;
+        }
+
+        &__phonetic {
+            .wordSound {
+                padding: 0.3rem;
+                margin: 0 1rem;
+            }
+        }
+    }
+}
+
+
+@include tablet-landscape {
+    .dictionary {
+        max-width: 250px;
+        margin: 2rem auto;
+
+        &__buttons {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        input {
+            width: 17rem;
+        }
+
+        &__filter {
+            margin: 0 1rem;
+        }
+
+        &__phonetic {
+            .wordSound {
+                padding: 0.3rem;
+                margin: 0 1rem;
+            }
+        }
     }
 }

@@ -22,10 +22,10 @@
   font-weight: bold;
 }
 .keyboard__key:hover {
-  background-color: rgba(192, 192, 192, 0.4784313725);
+  background-color: #c0c0c07a;
 }
 .keyboard__key:active {
-  background-color: rgba(192, 192, 192, 0.4784313725);
+  background-color: #c0c0c07a;
 }
 
 .keyboard__special-keys {
@@ -37,8 +37,8 @@
 }
 
 .tiles {
-  background: rgb(214, 140, 43);
-  background: linear-gradient(90deg, rgb(214, 140, 43) 0%, rgb(255, 205, 46) 35%, rgb(255, 230, 46) 100%);
+  background: #d68c2b;
+  background: linear-gradient(90deg, #d68c2b 0%, #ffcd2e 35%, #ffe62e 100%);
   border-radius: 5%;
 }
 
@@ -121,11 +121,9 @@
 .tile {
   width: 4.5rem;
   aspect-ratio: 1/1;
-  background-color: rgb(235, 222, 166);
+  background-color: #ebdea6;
   box-shadow: -0.2em -0.125em 0.125em rgba(0, 0, 0, 0.25), 0 0 0 0.04em rgba(233, 184, 101, 0.3), 0.02em 0.02em 0.02em rgba(0, 0, 0, 0.4) inset, -0.05em -0.05em 0.02em rgba(255, 255, 255, 0.8) inset;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   cursor: pointer;
   transition: all 0.125s ease;
   position: relative;
@@ -155,19 +153,21 @@
 
 @media screen and (max-width: 375px) {
   .holder {
-    max-width: 20rem;
+    max-width: 15rem;
   }
+
   .tile__letter {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   .tile__value {
-    font-size: 0.5rem;
+    font-size: 0.3rem;
   }
 }
 @media only screen and (min-width: 376px) and (max-width: 576px) {
   .holder {
     max-width: 23rem;
   }
+
   .tile__letter {
     font-size: 1.8rem;
   }
@@ -179,6 +179,7 @@
   .holder {
     max-width: 28rem;
   }
+
   .tile__letter {
     font-size: 2.2rem;
   }
@@ -198,25 +199,12 @@ a :hover {
   cursor: pointer;
   padding: 0.7rem 2rem;
   transition: background-color 0.5s ease-in-out;
-  box-shadow: 0 4px 8px rgba(249, 246, 246, 0.431372549);
+  box-shadow: 0 4px 8px #f9f6f66e;
 }
 
 @media screen and (max-width: 375px) {
   .pageButtons {
-    margin: 1rem;
-    margin-top: 3rem;
-  }
-}
-@media only screen and (min-width: 376px) and (max-width: 576px) {
-  .pageButtons {
-    margin: 1rem;
-    margin-top: 3rem;
-  }
-}
-@media only screen and (min-width: 577px) and (max-width: 768px) {
-  .pageButtons {
-    margin: 1rem;
-    margin-top: 3rem;
+    display: block;
   }
 }
 .dictionary {
@@ -227,9 +215,9 @@ a :hover {
   margin: 4rem auto;
 }
 .dictionary input {
-  width: 28rem;
+  width: 30rem;
   padding: 10px;
-  border: 1px solid rgba(204, 204, 204, 0.5019607843);
+  border: 1px solid #cccccc80;
   box-shadow: 0 4px 8px rgba(249, 246, 246, 0.432);
   border-radius: 1rem;
   margin-bottom: 10px;
@@ -251,12 +239,10 @@ a :hover {
 .dictionary__resetButton {
   margin-left: 1rem;
 }
-.dictionary__filter {
-  margin: 0 1rem;
-}
 .dictionary__result {
   margin-top: 4rem;
   text-align: left;
+  max-width: 25rem;
 }
 .dictionary__result h2 {
   margin-bottom: 10px;
@@ -267,19 +253,17 @@ a :hover {
   flex-direction: column;
   align-items: flex-start;
 }
-.dictionary__phonetic {
+.dictionary__phonetics__phonetic {
   margin-bottom: 10px;
 }
-.dictionary__phonetic .wordSound {
-  padding: 0.5rem;
-  margin: 0 1rem;
+.dictionary__phonetics__phonetic__wordSound {
+  padding: none;
 }
-.dictionary__phonetic small {
+.dictionary__phonetics__phonetic small {
   font-size: 0.85rem;
 }
 .dictionary__meanings {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -307,7 +291,7 @@ a :hover {
 .dictionary__filter {
   margin-top: 10px;
   padding: 0.2rem;
-  border: 1px solid rgba(204, 204, 204, 0.5019607843);
+  border: 1px solid #cccccc80;
   border-radius: 0.5rem;
   text-align: center;
 }
@@ -316,85 +300,11 @@ a :hover {
   .dictionary {
     max-width: 210px;
   }
-  .dictionary__buttons {
-    display: flex;
-    align-items: flex-start;
-  }
-  .dictionary input {
-    width: 14rem;
-  }
-  .dictionary__filter {
-    margin: 0 1rem;
-    padding: 1px;
-  }
-  .dictionary__phonetic .wordSound {
-    padding: 0.3rem;
-    margin: 0 1rem;
-  }
-  .dictionary__result {
-    margin-top: 4rem;
-    text-align: left;
-    max-width: 25rem;
-  }
-}
-@media only screen and (min-width: 376px) and (max-width: 576px) {
-  .dictionary {
-    max-width: 250px;
-    margin: 2rem auto;
-  }
-  .dictionary__buttons {
-    display: flex;
-    align-items: flex-start;
+  .dictionary button {
+    display: block;
   }
   .dictionary input {
     width: 15rem;
-  }
-  .dictionary__filter {
-    margin: 0 1rem;
-  }
-  .dictionary__phonetic .wordSound {
-    padding: 0.3rem;
-    margin: 0 1rem;
-  }
-}
-@media only screen and (min-width: 577px) and (max-width: 768px) {
-  .dictionary {
-    max-width: 300px;
-    margin: 2rem auto;
-  }
-  .dictionary__buttons {
-    display: flex;
-    align-items: flex-start;
-  }
-  .dictionary input {
-    width: 15rem;
-  }
-  .dictionary__filter {
-    margin: 0 1rem;
-  }
-  .dictionary__phonetic .wordSound {
-    padding: 0.3rem;
-    margin: 0 1rem;
-  }
-}
-@media only screen and (min-width: 769px) and (max-width: 992px) {
-  .dictionary {
-    max-width: 250px;
-    margin: 2rem auto;
-  }
-  .dictionary__buttons {
-    display: flex;
-    align-items: flex-start;
-  }
-  .dictionary input {
-    width: 17rem;
-  }
-  .dictionary__filter {
-    margin: 0 1rem;
-  }
-  .dictionary__phonetic .wordSound {
-    padding: 0.3rem;
-    margin: 0 1rem;
   }
 }
 #root {
@@ -417,4 +327,4 @@ a :hover {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}*//*# sourceMappingURL=App.css.map */
+}*/

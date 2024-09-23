@@ -65,7 +65,7 @@ const Dictionary = () => {
 
     const handleSearch = () => {
         if (searchedWord) {
-            navigate(`/dictionary/${searchedWord}`);
+            navigate(`/canagram/dictionary/${searchedWord}`);
             fetchDefinition(searchedWord);
         }
     };
@@ -107,7 +107,7 @@ const Dictionary = () => {
                 onKeyDown={handleKeyDown}
                 placeholder="Type a word..."
             />
-            <div>
+            <div className="dictionary__buttons">
                 <button className="dictionary__searchButton" onClick={handleSearch} disabled={loading}>
                     {loading ? 'Loading...' : 'Search'}
                 </button>

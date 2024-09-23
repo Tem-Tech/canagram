@@ -1,0 +1,178 @@
+.dictionary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 4rem auto;
+}
+.dictionary input {
+  width: 28rem;
+  padding: 10px;
+  border: 1px solid #cccccc80;
+  box-shadow: 0 4px 8px rgba(249, 246, 246, 0.432);
+  border-radius: 1rem;
+  margin-bottom: 10px;
+}
+.dictionary__searchButton, .dictionary__resetButton {
+  margin-top: 2rem;
+}
+.dictionary button {
+  padding: 0.5rem 2rem;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+.dictionary button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.dictionary__resetButton {
+  margin-left: 1rem;
+}
+.dictionary__filter {
+  margin: 0 1rem;
+}
+.dictionary__result {
+  margin-top: 4rem;
+  text-align: left;
+}
+.dictionary__result h2 {
+  margin-bottom: 10px;
+}
+.dictionary__phonetics {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.dictionary__phonetic {
+  margin-bottom: 10px;
+}
+.dictionary__phonetic .wordSound {
+  padding: 0.5rem;
+  margin: 0 1rem;
+}
+.dictionary__phonetic small {
+  font-size: 0.85rem;
+}
+.dictionary__meanings {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.dictionary__meaning {
+  margin-top: 20px;
+  max-width: 250px;
+}
+.dictionary__meaning span {
+  font-style: italic;
+  color: #555;
+  font-size: 0.85rem;
+}
+.dictionary__definition {
+  margin-bottom: 10px;
+}
+.dictionary__example {
+  margin-top: 5px;
+  font-style: italic;
+  color: #555;
+}
+.dictionary__error {
+  color: red;
+  margin-top: 10px;
+}
+.dictionary__filter {
+  margin-top: 10px;
+  padding: 0.2rem;
+  border: 1px solid #cccccc80;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 375px) {
+  .dictionary {
+    max-width: 210px;
+  }
+  .dictionary__buttons {
+    display: flex;
+    align-items: flex-start;
+  }
+  .dictionary input {
+    width: 14rem;
+  }
+  .dictionary__filter {
+    margin: 0 1rem;
+    padding: 1px;
+  }
+  .dictionary__phonetic .wordSound {
+    padding: 0.3rem;
+    margin: 0 1rem;
+  }
+  .dictionary__result {
+    margin-top: 4rem;
+    text-align: left;
+    max-width: 25rem;
+  }
+}
+@media only screen and (min-width: 376px) and (max-width: 576px) {
+  .dictionary {
+    max-width: 250px;
+    margin: 2rem auto;
+  }
+  .dictionary__buttons {
+    display: flex;
+    align-items: flex-start;
+  }
+  .dictionary input {
+    width: 15rem;
+  }
+  .dictionary__filter {
+    margin: 0 1rem;
+  }
+  .dictionary__phonetic .wordSound {
+    padding: 0.3rem;
+    margin: 0 1rem;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+  .dictionary {
+    max-width: 300px;
+    margin: 2rem auto;
+  }
+  .dictionary__buttons {
+    display: flex;
+    align-items: flex-start;
+  }
+  .dictionary input {
+    width: 15rem;
+  }
+  .dictionary__filter {
+    margin: 0 1rem;
+  }
+  .dictionary__phonetic .wordSound {
+    padding: 0.3rem;
+    margin: 0 1rem;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  .dictionary {
+    max-width: 250px;
+    margin: 2rem auto;
+  }
+  .dictionary__buttons {
+    display: flex;
+    align-items: flex-start;
+  }
+  .dictionary input {
+    width: 17rem;
+  }
+  .dictionary__filter {
+    margin: 0 1rem;
+  }
+  .dictionary__phonetic .wordSound {
+    padding: 0.3rem;
+    margin: 0 1rem;
+  }
+}

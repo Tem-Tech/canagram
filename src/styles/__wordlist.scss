@@ -1,3 +1,4 @@
+@import "./_media";
 .word-list {
     width: 66.66%;
     max-width: 80%;
@@ -7,13 +8,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;  
-    @media (max-width: 768px) {
-      width: 80%;
-    }
-  
-    @media (max-width: 480px) {
-      width: 90%;
-    }
+   
   &__controls{
     display: flex;
     justify-content: space-around;
@@ -82,4 +77,21 @@
       transform: translateY(-12px);
     }
   }
-  
+
+@include small-phone {
+.word-list{max-width: 16rem;}
+}
+
+@include phone {
+.word-list{max-width: 23rem;}
+}
+
+@include tablet {
+
+}
+
+
+@include tablet-landscape {
+
+
+}

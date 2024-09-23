@@ -1,3 +1,4 @@
+@import "./_media";
 .nav-menu {
   position: relative;
   display: flex;
@@ -5,8 +6,11 @@
   align-items: center;
   justify-content: flex-start;
   padding: 10px;
-  //position: fixed;
-&__content{
+&__icon{
+  width: 30px;
+  height: 30px;
+}
+  &__content{
   position: relative;
       background-color: #f0f0f0;
       padding: 10px;
@@ -41,3 +45,28 @@
       }
     }
   }
+
+  @include small-phone {
+    .nav-menu {
+ 
+    &__icon{
+      width: 18px;
+      height: 18px;
+    }
+  }}
+    
+    @include phone {
+    
+      
+    }
+    
+    @include tablet {
+     
+
+    }
+    
+    
+    @include tablet-landscape {
+    
+    
+    }

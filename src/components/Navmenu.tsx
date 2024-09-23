@@ -16,7 +16,7 @@ const NavMenu = () => {
       
       <img
         src={menu}
-        className="navbar__item"
+        className="nav-menu__icon"
         alt="menu icon"
         onClick={handleToggleMenu}
         aria-label="Toggle menu"
@@ -35,15 +35,15 @@ const NavMenu = () => {
           />
           <ul className="nav-menu__links">
             <li>
-              <Link to="/" className="navbar__link" onClick={handleToggleMenu}
+              <Link to="/canagram" className="navbar__link" onClick={handleToggleMenu}
               >Home
               </Link>
             </li>
             <li>
-              <Link to="/page1" className="navbar__link" onClick={handleToggleMenu}>Word Finder</Link>
+              <Link to="/canagram/page1" className="navbar__link" onClick={handleToggleMenu}>Word Finder</Link>
             </li>
             <li>
-              <Link to="/dictionary" className="navbar__link" onClick={handleToggleMenu}>Dictionary Mode</Link>
+              <Link to="/canagram/dictionary" className="navbar__link" onClick={handleToggleMenu}>Dictionary Mode</Link>
             </li>
           </ul>
         </div>
