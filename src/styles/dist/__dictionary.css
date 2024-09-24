@@ -85,7 +85,8 @@
 }
 .dictionary__filter {
   margin-top: 10px;
-  padding: 0.2rem;
+  margin: 0 1rem;
+  padding: 1px;
   border: 1px solid #cccccc80;
   border-radius: 0.5rem;
   text-align: center;

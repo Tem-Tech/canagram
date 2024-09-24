@@ -7,5 +7,5 @@ exports["default"] = vite_1.defineConfig({
     build: {
         outDir: 'docs'
     },
-    base: '/canagram'
+    base: '/'
 });

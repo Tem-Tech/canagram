@@ -55,7 +55,7 @@ function App() {
 
         <Routes>
           <Route
-            path="/canagram/"
+            path="/"
             element={
               <>
                 <Buttons />
