@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Tem-Tech.github.io/",
+  "homepage": "https://Tem-Tech.github.io/canagram",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
